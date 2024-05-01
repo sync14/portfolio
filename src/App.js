@@ -137,7 +137,7 @@ function App() {
           I'm a Frontend Devleoper
           </h1>
           <p className=" font-Permanent py-6 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
-          <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./syn.pdf" download="./syn.pdf">Download CV</a></motion.button>
+          <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">Download CV</a></motion.button>
         </motion.article>
 
         <motion.figure className="relative cursor-pointer" initial={{opacity:0,x:100}} animate={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
@@ -203,9 +203,9 @@ function App() {
           <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl" onClick={increase} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>&gt;</motion.button>
           
         </figure>
-      <figure className="flex">
+      <figure className="flex items-center">
           <img src="./img/exploration.png" alt="exploration" width={500} height={500} className=" w-1/2 h-auto cursor-pointer "  />
-          <figcaption className="border-[#fd7014] border rounded-lg font-Concert sm:font-bold lg:text-2xl p-4 text-justify  grow xl:h-1/2">
+          <figcaption className="font-Concert sm:font-bold lg:text-2xl p-4 text-left  grow xl:h-1/2">
           {detail}
           </figcaption>
       </figure>
