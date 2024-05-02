@@ -145,7 +145,9 @@ function App() {
           I'm a Frontend Devleoper
           </h2>
           <p className=" font-Permanent py-4 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
-          <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">Download CV</a></motion.button>
+          <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">
+            Download CV <img src="./img/download.png" width={512} height={512} alt="download icon" className=" w-4  h-4  inline-block"  /> 
+            </a></motion.button>
         </motion.article>
 
         <motion.figure className="relative cursor-pointer" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
@@ -247,7 +249,7 @@ function App() {
             </textarea>
             <motion.button type="submit" className="p-2 border-2 border-[#fd7014] px-8 rounded-full  font-bold" onSubmit={handleSubmit} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>Send</motion.button>
            {
-            sent&&<p className=" mx-4 p-2 text-lime-500 font-bold  font-Concert inline-block ">successfully sent</p>
+            sent&&<p className=" mx-4 p-2 text-lime-500 font-bold  font-Concert inline-block ">sent <img src="./img/send.png" alt="send icon" width={512} height={512} className="w-6 h-6 inline-block ml-2" /></p>
            }
        </motion.form>
       </article>
