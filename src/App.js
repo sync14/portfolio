@@ -145,7 +145,7 @@ function App() {
           I'm a Frontend Devleoper
           </h2>
           <p className=" font-Permanent py-4 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
-          <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">
+          <motion.button className="p-2 px-4 bg-[#fd7014] text-[#222831] rounded-2xl font-Concert" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">
             Download CV <img src="./img/download.png" width={512} height={512} alt="download icon" className=" w-4  h-4  inline-block"  /> 
             </a></motion.button>
         </motion.article>
@@ -159,7 +159,7 @@ function App() {
         </motion.figure>
       </section>
 
-      <hr className="w-2/3 mx-auto border-[#fd7014] border-2" />
+      <hr className="w-2/3 mx-auto border-[#fd7014] border" />
 
      <section id="path" className="min-h-screen p-4 scroll-mt-12 sm:scroll-mt-14 px-6">
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Path</h2>
@@ -200,7 +200,7 @@ function App() {
         </article>
      </section>
 
-     <hr className="w-2/3 mx-auto border-[#fd7014] border-2"/>
+     <hr className="w-2/3 mx-auto border-[#fd7014] border"/>
 
      <section id="exploration" className="min-h-screen  scroll-mt-10 sm:scroll-mt-12 p-6">
 
@@ -224,7 +224,7 @@ function App() {
       </article>
      </section>
 
-     <hr className="w-2/3 mx-auto border-[#fd7014] border-2"/>
+     <hr className="w-2/3 mx-auto border-[#fd7014] border"/>
 
      <section id="connect" className="min-h-screen scroll-mt-10 sm:scroll-mt-10 p-6">
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Connect</h2>
