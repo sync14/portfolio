@@ -9,6 +9,7 @@ function App() {
   const [detail,setDetail] = useState("A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api")
   const [image,setImage] = useState({src:"./img/snapsearch.jpg" ,width :1280 ,height :894 , detail :"A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api",
   name :"Snap Search", name :"Snap Search"})
+  const [sent,setSent] = useState(false)
   const imgArr =[
     {src:"./img/snapsearch.jpg" ,width :1280 ,height :894 , 
     detail :"A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api",
@@ -33,17 +34,22 @@ function App() {
     const serviceId ='service_ywfz6yf'
     const templateId ='template_6oor3yk'
     const publicKey ='JSNqEt5pq8ZT-SAj-'
-
     const templateParams ={
       from_name : name,
       from_email : email,
       to_name : "Soe Yan Naing",
       message : message
     }
-    emailjs.send(serviceId, templateId, templateParams, publicKey);
+     emailjs.send(serviceId, templateId, templateParams, publicKey);
     setName('')
     setEmail('')
     setMessage('')
+      
+        setSent(true)
+        setInterval(() => {
+          setSent(false)
+        }, 4000);
+    
   }
   
   const increase=()=>{
@@ -98,7 +104,7 @@ function App() {
     <header className="bg-[#222831] flex justify-between p-2 sticky  z-10  border-b-2 border-[#fd7014] top-0 w-screen font-Concert text-[#eee] px-4" >
       <button>
         <a href="/">
-          <img src="./img/logo.png" alt="logo"  className=" w-12 h-12 sm:w-14 sm:h-14"/>
+          <img src="./img/logo.png" alt="logo"  className=" w-12 h-12 sm:w-14 sm:h-14" />
         </a>
       </button>
       <nav aria-label="main-navigation" className="hidden sm:block grow max-w-xl my-auto w-full">
@@ -132,7 +138,7 @@ function App() {
     </header>
     <main className="bg-[#222831] text-[#eee] w-screen scroll-smooth" >
       <section  id="hero" className=" min-h-screen flex items-center justify-evenly p-4 scroll-mt-10 sm:scroll-mt-24">
-        <motion.article className=" p-4" initial={{opacity:0,x:-100}} animate={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+        <motion.article className=" p-4" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <h1 className=" font-Bree text-3xl font-bold lg:text-4xl  leading-10">Hi, I'm <span className="text-[#fd7014]">Soe Yan Naing</span> <br />
           I'm a Frontend Devleoper
           </h1>
@@ -140,7 +146,7 @@ function App() {
           <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">Download CV</a></motion.button>
         </motion.article>
 
-        <motion.figure className="relative cursor-pointer" initial={{opacity:0,x:100}} animate={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+        <motion.figure className="relative cursor-pointer" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
         <figcaption className=" p-6 border-[#fd7014] border rounded-full font-Concert font-bold text-xl lg:text-2xl flex-col">
             Welcome to my Coding Adventure
           </figcaption>
@@ -149,19 +155,19 @@ function App() {
         </motion.figure>
       </section>
 
-      <hr className="w-2/3 mx-auto border-[#fd7014] border-2"/>
+      <hr className="w-2/3 mx-auto border-[#fd7014] border-2" />
 
      <section id="path" className="min-h-screen p-4 scroll-mt-12 sm:scroll-mt-14 px-6">
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Path</h2>
      <article className=" grid grid-cols-1 lg:grid-cols-2 justify-center">
-      <figure className="relative cursor-pointer flex items-center w-1/3 flex-col mx-auto" onClick={handleSkill} >
+      <motion.figure className="relative cursor-pointer flex items-center w-1/3 flex-col mx-auto" onClick={handleSkill} initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
        
       <figcaption className="border-[#fd7014] border rounded-full font-Concert sm:font-bold lg:text-2xl p-4 text-center">
          {explain}
           </figcaption>
           <img src="./img/skill-character.png" alt="skill character" width={500} height={500}/>
          
-        </figure>
+        </motion.figure>
         {skill?
         <motion.article className=" p-4 grid grid-cols-2 w-2/3 sm:grid-cols-3 gap-4 mx-auto" variants={container} initial="hidden" animate="visible">
           <motion.figure variants={item}>
@@ -183,9 +189,9 @@ function App() {
 
         </motion.article>
         : 
-        <p className="grid place-content-center  text-9xl  mx-auto font-Concert cursor-pointer hover:rotate-45 m-auto">
+        <motion.p className="grid place-content-center  text-9xl  mx-auto font-Concert cursor-pointer hover:rotate-45 m-auto" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           ?
-        </p>
+        </motion.p>
         }
         </article>
      </section>
@@ -196,19 +202,19 @@ function App() {
 
      <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Exploration</h2>
      <article className="grid grid-flow-row lg:grid-flow-col gap-6 pr-4">
-     <figure className=" border-2 w-full sm:w-4/5 border-[#fd7014] rounded-xl p-2 mx-auto">
+     <motion.figure className=" border-2 w-full sm:w-4/5 border-[#fd7014] rounded-xl p-2 mx-auto" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}} >
           <img src={image.src} alt={image.name} width={image.width}  height={image.height} className=" pb-6 border-b-2 border-[#fd7014]"/>
           <figcaption className=" font-Permanent text-2xl font-bold text-center mt-6 mb-4">{image.name}</figcaption>
           <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl" onClick={decrease} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}> &lt; </motion.button>
           <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl" onClick={increase} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>&gt;</motion.button>
           
-        </figure>
-      <figure className="flex items-center">
+        </motion.figure>
+      <motion.figure className="flex items-center" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/exploration.png" alt="exploration" width={500} height={500} className=" w-1/2 h-auto cursor-pointer "  />
           <figcaption className="font-Concert sm:font-bold lg:text-2xl p-4 text-left  grow xl:h-1/2">
           {detail}
           </figcaption>
-      </figure>
+      </motion.figure>
         
        
       </article>
@@ -220,7 +226,7 @@ function App() {
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Connect</h2>
       <article  className="grid grid-flow-row sm:grid-flow-col gap-6 ">
        
-        <figure className="w-1/2 flex-col items-center mx-auto gap-3">
+        <motion.figure className="w-1/2 flex-col items-center mx-auto gap-3" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/connect.png" alt="connect"  width={500} height={500} className=" mx-auto" />
           <figcaption className="flex justify-evenly mt-4">
           <a href="https://www.facebook.com/soeyan.naing.161214?mibextid=JRoKGi" className="hover:scale-110" target="_blank" rel="noreferrer"><img src="./img/facebook.png" alt="facebook" width={48} height={48}  className=" w-14 h-14"/></a>
@@ -229,16 +235,19 @@ function App() {
           </figcaption>
 
         
-        </figure>
+        </motion.figure>
         
   
-       <form  onSubmit={handleSubmit} className=" mx-auto">
+       <motion.form  onSubmit={handleSubmit} className=" mx-auto" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
             <input type="text" name="name" id="name"  placeholder="Your name" required autoComplete="off" className=" bg-transparent border-b-2 border-[#fd7014] p-4 outline-none w-64 block mb-2 text-[#eee]" value={name} onChange={(e)=>setName(e.target.value)}/>
             <input type="mail" name="email" id="email"  placeholder="Your email" required autoComplete="off"  className=" bg-transparent border-b-2 border-[#fd7014] p-4 outline-none w-64 block mb-4 text-[#eee]" value={email} onChange={(e)=>setEmail(e.target.value)}/>
             <textarea name="message" id="message" cols="30" rows="10" className=" bg-transparent border-2 border-[#fd7014] min-w-80 my-8 outline-none block rounded-xl p-4 text-[#eee]" required autoComplete="off" placeholder="Your message" value={message} onChange={(e)=>setMessage(e.target.value)}>
             </textarea>
             <motion.button type="submit" className="p-2 border-2 border-[#fd7014] px-8 rounded-full  font-bold" onSubmit={handleSubmit} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>Send</motion.button>
-       </form>
+           {
+            sent&&<p className=" mx-4 p-2 text-lime-500 font-bold font-Bree  inline-block">successfully sent</p>
+           }
+       </motion.form>
       </article>
      </section>
       
