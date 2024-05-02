@@ -48,7 +48,7 @@ function App() {
         setSent(true)
         setInterval(() => {
           setSent(false)
-        }, 4000);
+        }, 3000);
     
   }
   
@@ -139,10 +139,12 @@ function App() {
     <main className="bg-[#222831] text-[#eee] w-screen scroll-smooth" >
       <section  id="hero" className=" min-h-screen flex items-center justify-evenly p-4 scroll-mt-10 sm:scroll-mt-24">
         <motion.article className=" p-4" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
-          <h1 className=" font-Bree text-3xl font-bold lg:text-4xl  leading-10">Hi, I'm <span className="text-[#fd7014]">Soe Yan Naing</span> <br />
-          I'm a Frontend Devleoper
+          <h1 className=" font-Bree text-3xl font-bold lg:text-4xl  leading-10 py-2">Hi, I'm <span className="text-[#fd7014]">Soe Yan Naing</span>
           </h1>
-          <p className=" font-Permanent py-6 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
+          <h2 className=" font-Bree text-xl font-bold lg:text-2xl  leading-10">
+          I'm a Frontend Devleoper
+          </h2>
+          <p className=" font-Permanent py-4 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
           <motion.button className="p-2 px-6 bg-[#fd7014] text-[#222831] rounded-full font-Concert font-bold" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">Download CV</a></motion.button>
         </motion.article>
 
@@ -245,7 +247,7 @@ function App() {
             </textarea>
             <motion.button type="submit" className="p-2 border-2 border-[#fd7014] px-8 rounded-full  font-bold" onSubmit={handleSubmit} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>Send</motion.button>
            {
-            sent&&<p className=" mx-4 p-2 text-lime-500 font-bold font-Bree  inline-block">successfully sent</p>
+            sent&&<p className=" mx-4 p-2 text-lime-500 font-bold  font-Concert inline-block ">successfully sent</p>
            }
        </motion.form>
       </article>
