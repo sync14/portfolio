@@ -16,7 +16,7 @@ function App() {
      name :"Snap Search"},
 
     {src:"./img/fun.jpg" ,width :1280 ,height :908 ,
-     detail :"A fun website created with Tailwind Css and React.js allowing users to translate into their favourite characters using Fun Translation api",
+     detail :"A fun website that allows users to translate into their favourite characters using Fun Translation api",
       name :"Fun Translation"},
 
     {src:"./img/dd.jpg" ,width :1280 ,height :905 ,
@@ -151,7 +151,7 @@ function App() {
         </motion.article>
 
         <motion.figure className="relative cursor-pointer" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
-        <figcaption className=" p-6 border-[#fd7014] border rounded-full font-Concert font-bold text-xl lg:text-2xl flex-col">
+        <figcaption className=" p-6 border-[#fd7014] border rounded-full font-Concert font-bold text-xl lg:text-2xl">
             Welcome to my Coding Adventure
           </figcaption>
           <img src="./img/character.png" alt="character" width={408} height={612}/>
@@ -205,15 +205,15 @@ function App() {
      <section id="exploration" className="min-h-screen  scroll-mt-10 sm:scroll-mt-12 p-6">
 
      <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Exploration</h2>
-     <article className="grid grid-flow-row lg:grid-flow-col gap-6 pr-4">
-     <motion.figure className=" border-2 w-full sm:w-4/5 border-[#fd7014] rounded-xl p-2 mx-auto" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}} >
+     <article className=" grid grid-cols-1 lg:grid-cols-2 justify-center">
+     <motion.figure className=" w-full sm:w-3/4  p-2 mx-auto" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}} >
           <img src={image.src} alt={image.name} width={image.width}  height={image.height} className=" pb-6 border-b-2 border-[#fd7014]"/>
-          <figcaption className=" font-Permanent text-2xl font-bold text-center mt-6 mb-4">{image.name}</figcaption>
-          <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl" onClick={decrease} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}> &lt; </motion.button>
+          <figcaption className=" font-Permanent text-2xl font-bold text-center mt-4 mb-2">{image.name}</figcaption>
+          <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl " onClick={decrease} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}> &lt; </motion.button>
           <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl" onClick={increase} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>&gt;</motion.button>
           
         </motion.figure>
-      <motion.figure className="flex items-center" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+      <motion.figure className="flex items-center w-full" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/exploration.png" alt="exploration" width={500} height={500} className=" w-1/2 h-auto cursor-pointer "  />
           <figcaption className="font-Concert sm:font-bold lg:text-2xl p-4 text-left  grow xl:h-1/2">
           {detail}
