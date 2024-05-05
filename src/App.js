@@ -8,7 +8,7 @@ function App() {
   const [explain,setExplain] = useState("Touch me to reveal my path")
   const [detail,setDetail] = useState("A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api")
   const [image,setImage] = useState({src:"./img/snapsearch.jpg" ,width :1280 ,height :894 , detail :"A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api",
-  name :"Snap Search", name :"Snap Search"})
+  name :"Snap Search"})
   const [sent,setSent] = useState(false)
   const imgArr =[
     {src:"./img/snapsearch.jpg" ,width :1280 ,height :894 , 
@@ -84,7 +84,7 @@ function App() {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
+        delayChildren: 0.2,
         staggerChildren: 0.2
       }
     }
@@ -138,7 +138,7 @@ function App() {
     </header>
     <main className="bg-[#222831] text-[#eee] w-screen scroll-smooth" >
       <section  id="hero" className=" min-h-screen flex items-center justify-evenly p-4 scroll-mt-10 sm:scroll-mt-24">
-        <motion.article className=" p-4" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+        <motion.article className=" p-4" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <h1 className=" font-Bree text-3xl font-bold lg:text-4xl  leading-10 py-2">Hi, I'm <span className="text-[#fd7014]">Soe Yan Naing</span>
           </h1>
           <h2 className=" font-Bree text-xl font-bold lg:text-2xl  leading-10">
@@ -150,7 +150,7 @@ function App() {
             </a></motion.button>
         </motion.article>
 
-        <motion.figure className="relative cursor-pointer" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+        <motion.figure className="relative cursor-pointer" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
         <figcaption className=" p-6 border-[#fd7014] border rounded-full font-Concert font-bold text-xl lg:text-2xl">
             Welcome to my Coding Adventure
           </figcaption>
@@ -164,7 +164,7 @@ function App() {
      <section id="path" className="min-h-screen p-4 scroll-mt-12 sm:scroll-mt-14 px-6">
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Path</h2>
      <article className=" grid grid-cols-1 lg:grid-cols-2 justify-center">
-      <motion.figure className="relative cursor-pointer flex items-center w-1/3 flex-col mx-auto" onClick={handleSkill} initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+      <motion.figure className="relative cursor-pointer flex items-center w-2/3 flex-col mx-auto" onClick={handleSkill} initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
        
       <figcaption className="border-[#fd7014] border rounded-full font-Concert sm:font-bold lg:text-2xl p-4 text-center">
          {explain}
@@ -193,7 +193,7 @@ function App() {
 
         </motion.article>
         : 
-        <motion.p className="grid place-content-center  text-9xl  mx-auto font-Concert cursor-pointer hover:rotate-45 m-auto" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+        <motion.p className="grid place-content-center  text-9xl  mx-auto font-Concert cursor-pointer hover:rotate-45 m-auto" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           ?
         </motion.p>
         }
@@ -206,14 +206,14 @@ function App() {
 
      <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Exploration</h2>
      <article className=" grid grid-cols-1 lg:grid-cols-2 justify-center">
-     <motion.figure className="  sm:w-2/3 p-2 mx-auto" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}} >
+     <motion.figure className="w-4/5 p-2 mx-auto" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src={image.src} alt={image.name} width={image.width}  height={image.height} className=" pb-6 border-b-2 border-[#fd7014]"/>
           <figcaption className=" font-Permanent text-2xl font-bold text-center mt-4 mb-2">{image.name}</figcaption>
           <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl " onClick={decrease} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}> &lt; </motion.button>
           <motion.button className=" px-6 py-2 bg-[#eee] text-[#222831] m-4  rounded-xl font-bold font-Bree npmborder-[#fd7014] text-xl" onClick={increase} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>&gt;</motion.button>
           
         </motion.figure>
-      <motion.figure className="flex items-center w-2/3" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+      <motion.figure className="flex items-center w-full" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/exploration.png" alt="exploration" width={500} height={500} className=" w-1/2 h-auto cursor-pointer "  />
           <figcaption className="font-Concert sm:font-bold lg:text-2xl p-4 text-left  grow xl:h-1/2">
           {detail}
@@ -230,7 +230,7 @@ function App() {
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Connect</h2>
       <article  className="grid grid-flow-row sm:grid-flow-col gap-6 ">
        
-        <motion.figure className="w-1/2 flex-col items-center mx-auto gap-3" initial={{opacity:0,x:-100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+        <motion.figure className="w-1/2 flex-col items-center mx-auto gap-3" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/connect.png" alt="connect"  width={500} height={500} className=" mx-auto" />
           <figcaption className="flex justify-evenly mt-4">
           <a href="https://www.facebook.com/soeyan.naing.161214?mibextid=JRoKGi" className="hover:scale-110" target="_blank" rel="noreferrer"><img src="./img/facebook.png" alt="facebook" width={48} height={48}  className=" w-14 h-14"/></a>
@@ -242,7 +242,7 @@ function App() {
         </motion.figure>
         
   
-       <motion.form  onSubmit={handleSubmit} className=" mx-auto" initial={{opacity:0,x:100}} whileInView={{opacity:1, x:0}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
+       <motion.form  onSubmit={handleSubmit} className=" mx-auto" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
             <input type="text" name="name" id="name"  placeholder="Your name" required autoComplete="off" className=" bg-transparent border-b-2 border-[#fd7014] p-4 outline-none w-64 block mb-2 text-[#eee]" value={name} onChange={(e)=>setName(e.target.value)}/>
             <input type="mail" name="email" id="email"  placeholder="Your email" required autoComplete="off"  className=" bg-transparent border-b-2 border-[#fd7014] p-4 outline-none w-64 block mb-4 text-[#eee]" value={email} onChange={(e)=>setEmail(e.target.value)}/>
             <textarea name="message" id="message" cols="30" rows="10" className=" bg-transparent border-2 border-[#fd7014] min-w-80 my-8 outline-none block rounded-xl p-4 text-[#eee]" required autoComplete="off" placeholder="Your message" value={message} onChange={(e)=>setMessage(e.target.value)}>
