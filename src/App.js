@@ -109,10 +109,10 @@ function App() {
       </button>
       <nav aria-label="main-navigation" className="hidden sm:block grow max-w-xl my-auto w-full">
         <menu className=" flex justify-evenly text-white items-center">
-         <li><a href="#hero" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Home</a></li>
-         <li><a href="#path" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Path</a></li>
-         <li><a href="#exploration" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Exploration</a></li>
-         <li ><a href="#connect" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Connect</a></li>
+         <li><a href="#hero" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-xl">Home</a></li>
+         <li><a href="#path" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-xl">Path</a></li>
+         <li><a href="#exploration" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-xl">Exploration</a></li>
+         <li ><a href="#connect" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-xl">Connect</a></li>
         </menu>
       </nav>
       {show&&
