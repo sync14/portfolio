@@ -109,10 +109,10 @@ function App() {
       </button>
       <nav aria-label="main-navigation" className="hidden sm:block grow max-w-xl my-auto w-full">
         <menu className=" flex justify-evenly text-white items-center">
-         <li><a href="#hero" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-full">Home</a></li>
-         <li><a href="#path" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-full">Path</a></li>
-         <li><a href="#exploration" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-full">Exploration</a></li>
-         <li ><a href="#connect" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-full">Connect</a></li>
+         <li><a href="#hero" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Home</a></li>
+         <li><a href="#path" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Path</a></li>
+         <li><a href="#exploration" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Exploration</a></li>
+         <li ><a href="#connect" className="font-bold text-xl hover:bg-[#eee] hover:text-[#393e46] px-6 py-2 rounded-md">Connect</a></li>
         </menu>
       </nav>
       {show&&
@@ -145,7 +145,7 @@ function App() {
           I'm a Frontend Devleoper
           </h2>
           <p className=" font-Permanent py-4 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
-          <motion.button className="p-2 px-4 bg-[#fd7014] text-[#222831] rounded-2xl font-Concert" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaingCvForm.pdf" download="./SoeYanNaingCvForm.pdf">
+          <motion.button className="p-2 px-4 bg-[#fd7014] text-[#222831] rounded-2xl font-Concert" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaing-CV.pdf" download="./SoeYanNaingCvForm.pdf">
             Download CV <img src="./img/download.png" width={512} height={512} alt="download icon" className=" w-4  h-4  inline-block"  /> 
             </a></motion.button>
         </motion.article>
@@ -233,9 +233,9 @@ function App() {
         <motion.figure className="w-1/2 flex-col items-center mx-auto gap-3" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/connect.png" alt="connect"  width={500} height={500} className=" mx-auto" />
           <figcaption className="flex justify-evenly mt-4">
-          <a href="https://www.facebook.com/soeyan.naing.161214?mibextid=JRoKGi" className="hover:scale-110" target="_blank" rel="noreferrer"><img src="./img/facebook.png" alt="facebook" width={48} height={48}  className=" w-14 h-14"/></a>
-          <a href="https://www.instagram.com/soe_yan_naing14?igsh=b3l1eGg0MHdkbGZo" className="hover:scale-110" target="_blank" rel="noreferrer"><img src="./img/instagram.png" alt="instagram" width={48} height={48} className=" w-14 h-14"/></a>
-          <a href="https://github.com/sync14" className="hover:scale-110" target="_blank" rel="noreferrer"><img src="./img/github.png" alt="github" width={64} height={64} className=" w-14 h-14"/></a>
+          <motion.a href="https://www.facebook.com/soeyan.naing.161214?mibextid=JRoKGi"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/facebook.png" alt="facebook" width={48} height={48}  className=" w-14 h-14"/></motion.a>
+          <motion.a href="https://www.instagram.com/soe_yan_naing14?igsh=b3l1eGg0MHdkbGZo"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/instagram.png" alt="instagram" width={48} height={48} className=" w-14 h-14"/></motion.a>
+          <motion.a href="https://github.com/sync14"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/github.png" alt="github" width={64} height={64} className=" w-14 h-14"/></motion.a>
           </figcaption>
 
         
