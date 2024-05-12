@@ -1,6 +1,8 @@
 import { useState } from "react";
 import  emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
+import { TbDownload } from "react-icons/tb";
 
 function App() {
   const [show,setShow] = useState(false);
@@ -9,7 +11,7 @@ function App() {
   const [detail,setDetail] = useState("A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api")
   const [image,setImage] = useState({src:"./img/snapsearch.jpg" ,width :1280 ,height :894 , detail :"A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api",
   name :"Snap Search"})
-  const [sent,setSent] = useState(false)
+ 
   const imgArr =[
     {src:"./img/snapsearch.jpg" ,width :1280 ,height :894 , 
     detail :"A website built using Tailwind Css and React.js that allows users to search for images by name using Pixabay api",
@@ -29,8 +31,9 @@ function App() {
   const [message,setMessage] = useState('');
 
 
-  const handleSubmit=(e)=>{
+  const handleSubmit=async(e)=>{
     e.preventDefault();
+    try{
     const serviceId ='service_ywfz6yf'
     const templateId ='template_6oor3yk'
     const publicKey ='JSNqEt5pq8ZT-SAj-'
@@ -40,16 +43,16 @@ function App() {
       to_name : "Soe Yan Naing",
       message : message
     }
-     emailjs.send(serviceId, templateId, templateParams, publicKey);
+     const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+     if(!response) throw new Error ("Try again")
     setName('')
     setEmail('')
     setMessage('')
-      
-        setSent(true)
-        setInterval(() => {
-          setSent(false)
-        }, 3000);
-    
+    toast.success('Email sent successfully')
+  }
+  catch(err){
+    toast.error(err.message)
+  }
   }
   
   const increase=()=>{
@@ -101,6 +104,7 @@ function App() {
   
   return (
     <>
+    <Toaster position="top-right" reverseOrder={false}/>
     <header className="bg-[#222831] flex justify-between p-2 sticky  z-10  border-b-2 border-[#fd7014] top-0 w-screen font-Concert text-[#eee] px-4" >
       <button>
         <a href="/">
@@ -137,6 +141,7 @@ function App() {
 }
     </header>
     <main className="bg-[#222831] text-[#eee] w-screen scroll-smooth" >
+    
       <section  id="hero" className=" min-h-screen flex items-center justify-evenly p-4 scroll-mt-10 sm:scroll-mt-24">
         <motion.article className=" p-4" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <h1 className=" font-Bree text-3xl font-bold lg:text-4xl  leading-10 py-2">Hi, I'm <span className="text-[#fd7014]">Soe Yan Naing</span>
@@ -144,14 +149,14 @@ function App() {
           <h2 className=" font-Bree text-xl font-bold lg:text-2xl  leading-10">
           I'm a Frontend Devleoper
           </h2>
-          <p className=" font-Permanent py-4 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
-          <motion.button className="p-2 px-4 bg-[#fd7014] text-[#222831] rounded-2xl font-Concert" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaing-CV.pdf" download="./SoeYanNaingCvForm.pdf">
-            Download CV <img src="./img/download.png" width={512} height={512} alt="download icon" className=" w-4  h-4  inline-block"  /> 
+          <p className=" font-Concert py-2 text-lg sm:text-2xl">I specialize in coding for user interaction</p>
+          <motion.button className="p-2 px-4 bg-[#fd7014] text-[#222831] rounded-2xl font-Concert mt-4" whileTap={{scale:0.9}} whileHover={{scale:1.1, color: "#eee"}} transition={{bounceDamping:10,bounceStiffness:600}}><a href="./SoeYanNaing-CV.pdf" download="./SoeYanNaingCvForm.pdf">
+            Download CV <TbDownload className=" inline-block"/>
             </a></motion.button>
         </motion.article>
 
         <motion.figure className="relative cursor-pointer" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
-        <figcaption className=" p-6 border-[#fd7014] border rounded-full font-Concert font-bold text-xl lg:text-2xl">
+        <figcaption className=" p-6 border-[#fd7014] border rounded-3xl font-Concert font-bold text-xl lg:text-2xl">
             Welcome to my Coding Adventure
           </figcaption>
           <img src="./img/character.png" alt="character" width={408} height={612}/>
@@ -163,7 +168,7 @@ function App() {
 
      <section id="path" className="min-h-screen p-4 scroll-mt-12 sm:scroll-mt-14 px-6">
       <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Path</h2>
-     <article className=" grid grid-cols-1 lg:grid-cols-2 justify-center">
+     <article className=" grid grid-cols-1 lg:grid-cols-2 justify-start">
       <motion.figure className="relative cursor-pointer flex items-center w-2/3 flex-col mx-auto" onClick={handleSkill} initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
        
       <figcaption className="border-[#fd7014] border rounded-full font-Concert sm:font-bold lg:text-2xl p-4 text-center">
@@ -205,7 +210,7 @@ function App() {
      <section id="exploration" className="min-h-screen  scroll-mt-10 sm:scroll-mt-12 p-6">
 
      <h2 className=" font-Permanent font-bold text-4xl mb-10 ml-6">Exploration</h2>
-     <article className=" grid grid-cols-1 lg:grid-cols-2 justify-center">
+     <article className=" grid grid-cols-1 lg:grid-cols-2 justify-start">
      <motion.figure className="w-4/5 p-2 mx-auto" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src={image.src} alt={image.name} width={image.width}  height={image.height} className=" pb-6 border-b-2 border-[#fd7014]"/>
           <figcaption className=" font-Permanent text-2xl font-bold text-center mt-4 mb-2">{image.name}</figcaption>
@@ -232,7 +237,7 @@ function App() {
        
         <motion.figure className="w-1/2 flex-col items-center mx-auto gap-3" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/connect.png" alt="connect"  width={500} height={500} className=" mx-auto" />
-          <figcaption className="flex justify-evenly mt-4">
+          <figcaption className="flex gap-4 mt-4">
           <motion.a href="https://www.facebook.com/soeyan.naing.161214?mibextid=JRoKGi"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/facebook.png" alt="facebook" width={48} height={48}  className=" w-14 h-14"/></motion.a>
           <motion.a href="https://www.instagram.com/soe_yan_naing14?igsh=b3l1eGg0MHdkbGZo"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/instagram.png" alt="instagram" width={48} height={48} className=" w-14 h-14"/></motion.a>
           <motion.a href="https://github.com/sync14"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/github.png" alt="github" width={64} height={64} className=" w-14 h-14"/></motion.a>
@@ -248,9 +253,7 @@ function App() {
             <textarea name="message" id="message" cols="30" rows="10" className=" bg-transparent border-2 border-[#fd7014] min-w-80 my-8 outline-none block rounded-xl p-4 text-[#eee]" required autoComplete="off" placeholder="Your message" value={message} onChange={(e)=>setMessage(e.target.value)}>
             </textarea>
             <motion.button type="submit" className="p-2 border-2 border-[#fd7014] px-8 rounded-full  font-bold" onSubmit={handleSubmit} whileTap={{scale:0.9}} whileHover={{scale:1.1, backgroundColor: "#fd7014"}} transition={{bounceDamping:10,bounceStiffness:600}}>Send</motion.button>
-           {
-            sent&&<p className=" mx-4 p-2 text-lime-500 font-bold  font-Concert inline-block ">sent <img src="./img/send.png" alt="send icon" width={512} height={512} className="w-6 h-6 inline-block ml-2" /></p>
-           }
+          
        </motion.form>
       </article>
      </section>
