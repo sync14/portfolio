@@ -237,7 +237,7 @@ function App() {
        
         <motion.figure className="w-1/2 flex-col items-center mx-auto gap-3" initial={{opacity:0,scale:0}} whileInView={{opacity:1, scale:1}} transition={{duration:1,ease:"easeOut" ,delay : 0.2}}>
           <img src="./img/connect.png" alt="connect"  width={500} height={500} className=" mx-auto" />
-          <figcaption className="flex gap-4 mt-4">
+          <figcaption className="flex gap-4 mt-4 justify-around">
           <motion.a href="https://www.facebook.com/soeyan.naing.161214?mibextid=JRoKGi"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/facebook.png" alt="facebook" width={48} height={48}  className=" w-14 h-14"/></motion.a>
           <motion.a href="https://www.instagram.com/soe_yan_naing14?igsh=b3l1eGg0MHdkbGZo"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/instagram.png" alt="instagram" width={48} height={48} className=" w-14 h-14"/></motion.a>
           <motion.a href="https://github.com/sync14"  target="_blank" rel="noreferrer" whileTap={{scale:0.9}} whileHover={{scale:1.1}} transition={{bounceDamping:10,bounceStiffness:600}}><img src="./img/github.png" alt="github" width={64} height={64} className=" w-14 h-14"/></motion.a>
